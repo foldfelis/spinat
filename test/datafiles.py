@@ -2,7 +2,7 @@ from spinat import datafiles
 
 
 def moke_growth_2mode_file_test():
-    fn = "./Demo/MOKE_Growth/4FeCu.bin"
+    file = "./Demo/MOKE_Growth/4FeCu.bin"
     col_names = [
         "Time_i", "FluxSum1_i", "FluxSum2_i",
         "MR_i", "MS_i", "MaxField_i",
@@ -12,25 +12,25 @@ def moke_growth_2mode_file_test():
         "MR_o", "MS_o", "MaxField_o",
         "Logic_o", "Temp_o", "Pressure_o",
     ]
-    df = datafiles.file2df(fn, col_names, n_header=2, sep=" ")
+    df = datafiles.file2df(file, col_names, skip_row=2, sep=" ")
 
     return df
 
 
 def moke_growth_partial_2mode_file_test():
-    fn = "./Demo/MOKE_Growth/4FeCu.bin"
+    file = "./Demo/MOKE_Growth/4FeCu.bin"
     col_names = [
         "Time_i", "FluxSum1_i", "FluxSum2_i",
         "MR_i", "MS_i", "MaxField_i",
         "Logic_i", "Temp_i", "Pressure_i",
     ]
-    df = datafiles.file2df(fn, col_names, n_header=2, sep=" ")
+    df = datafiles.file2df(file, col_names, skip_row=2, sep=" ")
 
     return df
 
 
 def moke_growth_1mode_file_test():
-    fn = "./Demo/MOKE_Growth/14NiCu.bin"
+    file = "./Demo/MOKE_Growth/14NiCu.bin"
     iop = "o"
     col_names = [
         f"Time_{iop}",
@@ -39,15 +39,15 @@ def moke_growth_1mode_file_test():
         f"MR_{iop}", f"MS_{iop}", f"DC_MR_{iop}", f"DC_MS_{iop}",
         f"MaxField_{iop}", f"Logic_{iop}", f"Temp_{iop}", f"Pressure_{iop}",
     ]
-    df = datafiles.file2df(fn, col_names, n_header=2, sep=" ")
+    df = datafiles.file2df(file, col_names, skip_row=2, sep=" ")
 
     return df
 
 
 def moke_ncue_file_test():
-    fn = "./Demo/MOKE/3FeCu_z62_P_200Oe.txt"
+    file = "./Demo/MOKE/3FeCu_z62_P_200Oe.txt"
     col_names = ["Field", "Kerr"]
-    df = datafiles.file2df(fn, col_names, n_header=0, sep=" ")
+    df = datafiles.file2df(file, col_names, skip_row=0, sep=" ")
 
     return df
 
