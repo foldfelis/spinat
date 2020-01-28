@@ -2,20 +2,21 @@ import pandas as pd
 import numpy as np
 
 
-def file2df(file, col_names, skip_row=0, sep=" "):
-    lines = file2lines(file, skip_row)
-    df = lines2df(lines, col_names, sep)
+def read_expr(file, col_names, skip_row=0, sep=" "):
+    lines = read_file(file, skip_row)
+    df = parse2df(lines, col_names, sep)
 
     return df
 
 
-def file2lines(file, skip_row=0):
-    lines = open(file, "rb").readlines()
+def read_file(file, skip_row):
+    lines = open(file, "r").readlines()
     lines = lines[skip_row:]
+
     return lines
 
 
-def lines2df(lines, col_names, sep=" "):
+def parse2df(lines, col_names, sep):
     for i, line in enumerate(lines):
         line = line.strip().split(sep)
         line = filter(lambda val: val != "", line)
