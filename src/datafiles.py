@@ -2,6 +2,15 @@ import pandas as pd
 import numpy as np
 
 
+def file2df(fn, col_names, n_header=0, sep=" "):
+    lines = file2lines(fn)
+    lines = remove_header(lines, n_header)
+    arr = lines2array(lines, sep)
+    df = array2df(arr, col_names)
+
+    return df
+
+
 def file2lines(fn):
     lines = []
     with open(fn, "r") as f:
@@ -11,8 +20,8 @@ def file2lines(fn):
     return lines
 
 
-def remove_header(lines, n_line):
-    for i in range(n_line):
+def remove_header(lines, n_header):
+    for i in range(n_header):
         lines.pop(0)
 
     return lines
@@ -34,6 +43,6 @@ def lines2array(lines, sep=" "):
 
 
 def array2df(arr, col_names):
-    df = pd.DataFrame(arr, columns=col_names)
+    df = pd.DataFrame(arr[:, :len(col_names)], columns=col_names)
 
     return df
