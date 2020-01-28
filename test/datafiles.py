@@ -2,7 +2,7 @@ from spinat import datafiles
 
 
 def moke_growth_2mode_file_test():
-    fn = "/home/n/GoogleDrive/Lab/Data/Demo/MOKE_Growth/4FeCu.bin"
+    fn = "./Demo/MOKE_Growth/4FeCu.bin"
     col_names = [
         "Time_i", "FluxSum1_i", "FluxSum2_i",
         "MR_i", "MS_i", "MaxField_i",
@@ -18,7 +18,7 @@ def moke_growth_2mode_file_test():
 
 
 def moke_growth_partial_2mode_file_test():
-    fn = "/home/n/GoogleDrive/Lab/Data/Demo/MOKE_Growth/4FeCu.bin"
+    fn = "./Demo/MOKE_Growth/4FeCu.bin"
     col_names = [
         "Time_i", "FluxSum1_i", "FluxSum2_i",
         "MR_i", "MS_i", "MaxField_i",
@@ -30,7 +30,7 @@ def moke_growth_partial_2mode_file_test():
 
 
 def moke_growth_1mode_file_test():
-    fn = "/home/n/GoogleDrive/Lab/Data/Demo/MOKE_Growth/14NiCu.bin"
+    fn = "./Demo/MOKE_Growth/14NiCu.bin"
     iop = "o"
     col_names = [
         f"Time_{iop}",
@@ -45,7 +45,7 @@ def moke_growth_1mode_file_test():
 
 
 def moke_ncue_file_test():
-    fn = "/home/n/GoogleDrive/Lab/Data/Demo/MOKE/3FeCu_z62_P_200Oe.txt"
+    fn = "./Demo/MOKE/3FeCu_z62_P_200Oe.txt"
     col_names = ["Field", "Kerr"]
     df = datafiles.file2df(fn, col_names, n_header=0, sep=" ")
 
@@ -68,7 +68,7 @@ def main():
     """ When read AES file use pandas will do """
     # TODO: Add the following code to AES analysis.
     import pandas as pd
-    fn = "/home/n/GoogleDrive/Lab/Data/Demo/AES/100-950ev_z63_runs2_NiCu.agt"
+    fn = "./Demo/AES/100-950ev_z63_runs2_NiCu.agt"
     col_names = ["ElectronEnergy", "dNdE"]
     df = pd.read_csv(fn, skiprows=34, sep="\t", names=col_names)
     print(df)
