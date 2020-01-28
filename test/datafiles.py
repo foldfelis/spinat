@@ -44,6 +44,14 @@ def moke_growth_1mode_file_test():
     return df
 
 
+def moke_ncue_file_test():
+    fn = "/home/n/GoogleDrive/Lab/Data/Demo/MOKE/3FeCu_z62_P_200Oe.txt"
+    col_names = ["Field", "Kerr"]
+    df = datafiles.file2df(fn, col_names, n_header=0, sep=" ")
+
+    return df
+
+
 def main():
     df = moke_growth_2mode_file_test()
     print(df)
@@ -53,6 +61,18 @@ def main():
 
     df = moke_growth_1mode_file_test()
     print(df)
+
+    df = moke_ncue_file_test()
+    print(df)
+
+    """ When read AES file use pandas will do """
+    # TODO: Add the following code to AES analysis.
+    import pandas as pd
+    fn = "/home/n/GoogleDrive/Lab/Data/Demo/AES/100-950ev_z63_runs2_NiCu.agt"
+    col_names = ["ElectronEnergy", "dNdE"]
+    df = pd.read_csv(fn, skiprows=34, sep="\t", names=col_names)
+    print(df)
+    # TODO: end
 
 
 if __name__ == '__main__':
