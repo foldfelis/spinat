@@ -3,16 +3,16 @@ import seaborn as sb
 from matplotlib import pyplot as plt
 
 
-def data_preprocess(file, measure2modes, iop="i"):
-    col_names = set_columns(measure2modes, iop)
+def data_preprocess(file, multi_mode, iop="i"):
+    col_names = set_columns(multi_mode, iop)
     df = preprocess.read_expr(file, col_names, skip_row=2)
-    df = adjust_time(df, measure2modes, iop)
+    df = adjust_time(df, multi_mode, iop)
 
     return df
 
 
-def set_columns(measure2modes, iop):
-    if measure2modes:
+def set_columns(multi_mode, iop):
+    if multi_mode:
         col_names = [
             "Time_i", "FluxSum1_i", "FluxSum2_i",
             "MR_i", "MS_i", "MaxField_i",
@@ -36,8 +36,8 @@ def set_columns(measure2modes, iop):
     return col_names
 
 
-def adjust_time(df, measure2modes, iop):
-    if measure2modes:
+def adjust_time(df, multi_mode, iop):
+    if multi_mode:
         df["Time_i"] = df["Time_i"] - 60
         df["Time_o"] = df["Time_o"] - 60
     else:
