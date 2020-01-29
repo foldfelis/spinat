@@ -1,6 +1,6 @@
 from src import preprocess
-
-# TODO: plotmoke!(p::Plots.Plot, df, datalabel="", leg=:bottomright)
+import seaborn as sb
+from matplotlib import pyplot as plt
 
 MOKE_COL_NAMES = ["Field", "Kerr"]
 
@@ -36,3 +36,20 @@ def adjust_position(df):
     df["Kerr"] = df["Kerr"] - center
 
     return df
+
+
+def plot_moke(df, label="", p=None):
+    if p is None:
+        sb.set()
+        p = plt.subplots()
+
+    p[1].plot(
+        df["Field"], df["Kerr"],
+        label=label, linewidth=2.0)
+    p[1].set_xlabel("Field (Oe)")
+    p[1].set_ylabel("Kerr Intensity (arb. unit)")
+    p[1].legend()
+    p[1].grid(True)
+    p[1].set_title("MOKE")
+
+    return p
