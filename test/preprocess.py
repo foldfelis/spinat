@@ -65,15 +65,6 @@ def main():
     df = moke_ncue_file_test()
     print(df)
 
-    """ When read AES file use pandas will do """
-    # TODO: Add the following code to AES analysis.
-    import pandas as pd
-    fn = "./Demo/AES/100-950ev_z63_runs2_NiCu.agt"
-    col_names = ["ElectronEnergy", "dNdE"]
-    df = pd.read_csv(fn, skiprows=34, sep="\t", names=col_names)
-    print(df)
-    # TODO: end
-
 
 if __name__ == '__main__':
     main()
