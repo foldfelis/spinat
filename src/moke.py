@@ -47,7 +47,7 @@ def plot_moke(
 
     ax = p.gca()
     ax.plot(
-        df.Field, df.Kerr,
+        df["Field"], df["Kerr"],
         label=label, linewidth=2.0)
 
     ax.set_xlabel("Field (Oe)")
