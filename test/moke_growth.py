@@ -8,7 +8,7 @@ def moke_growth_1mode_file_test():
     print(df)
     p = moke_growth.plot_moke_growth(df, "MR", iop, "14 ML Ni/Cu(001) MR")
     p = moke_growth.plot_moke_growth(df, "MS", iop, "14 ML Ni/Cu(001) MS", p=p)
-    p[0].show()
+    p.show()
 
 
 def moke_growth_2mode_file_test():
@@ -19,7 +19,7 @@ def moke_growth_2mode_file_test():
     p = moke_growth.plot_moke_growth(df, "MS", "i", "4 ML Fe/Cu(001) in-plane MS", p=p)
     p = moke_growth.plot_moke_growth(df, "MR", "o", "4 ML Fe/Cu(001) out-of-plane MR", p=p)
     p = moke_growth.plot_moke_growth(df, "MS", "o", "4 ML Fe/Cu(001) out-of-plane MS", p=p)
-    p[0].show()
+    p.show()
 
 
 def main():
