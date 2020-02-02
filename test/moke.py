@@ -6,9 +6,9 @@ def main():
     df = moke.data_preprocess(file)
     print(df)
     p = moke.plot_moke(df, "3 ML Fe/Cu(001)")
-    p[0].show()
+    p.show()
     p = moke.plot_moke(df, "3 ML Fe/Cu(001)", p)
-    p[0].show()
+    p.show()
 
 
 if __name__ == '__main__':
