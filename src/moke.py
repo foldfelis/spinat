@@ -38,18 +38,22 @@ def adjust_position(df):
     return df
 
 
-def plot_moke(df, label="", p=None):
-    if p is None:
-        sb.set()
-        p = plt.subplots()
+def plot_moke(
+        df, label="", p=None,
+        style="seaborn-deep", size=(6, 5)):
+    with plt.style.context(style):
+        if p is None:
+            p = plt.figure(figsize=size)
 
-    p[1].plot(
+    ax = p.gca()
+    ax.plot(
         df["Field"], df["Kerr"],
         label=label, linewidth=2.0)
-    p[1].set_xlabel("Field (Oe)")
-    p[1].set_ylabel("Kerr Intensity (arb. unit)")
-    p[1].legend()
-    p[1].grid(True)
-    p[1].set_title("MOKE")
+
+    ax.set_xlabel("Field (Oe)")
+    ax.set_ylabel("Kerr Intensity (arb. unit)")
+    ax.legend()
+    ax.grid(True)
+    ax.set_title("MOKE")
 
     return p

@@ -47,8 +47,8 @@ def adjust_time(df, multi_mode, iop):
 
 
 def plot_moke_growth(
-        df, mr_ms, iop,
-        label="", interval=120, p=None, scatter=True):
+        df, mr_ms, iop, label="", interval=120,
+        style="seaborn-deep", size=(6, 5), p=None, scatter=True):
     if mr_ms == "MR":
         kerr_col_name = f"MR_{iop}"
     elif mr_ms == "MS":
@@ -57,25 +57,26 @@ def plot_moke_growth(
         print("argument 'mr_ms' is ether 'MR' or 'MS'")
         return p
 
-    if p is None:
-        sb.set()
-        p = plt.subplots()
+    with plt.style.context(style):
+        if p is None:
+            p = plt.figure(figsize=size)
 
     time = df[f"Time_{iop}"].values
     kerr = df[kerr_col_name].values
 
+    ax = p.gca()
     if scatter:
-        p[1].scatter(time, kerr, label=label)
+        ax.scatter(time, kerr, label=label)
     else:
-        p[1].plot(
+        ax.plot(
             time, kerr,
             label=label, linewidth=2.0)
 
-    p[1].set_xlabel("Time (sec)")
-    p[1].set_ylabel("Kerr Intensity (arb. unit)")
-    p[1].set_xticks(range(-60, int(max(time)), interval))
-    p[1].legend()
-    p[1].grid(True)
-    p[1].set_title("MOKE Growth")
+    ax.set_xlabel("Time (sec)")
+    ax.set_ylabel("Kerr Intensity (arb. unit)")
+    ax.set_xticks(range(-60, int(max(time)), interval))
+    ax.legend()
+    ax.grid(True)
+    ax.set_title("MOKE Growth")
 
     return p
