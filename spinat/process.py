@@ -5,13 +5,13 @@ from abc import ABC, abstractmethod
 
 class AbstractProcess(ABC):
     def __init__(self):
-        self.fig_time_interval = 120,
-        self.fig_style = "seaborn-deep",
-        self.line_width = 2.0,
-        self.fig_size = (10, 8),
-        self.fig_scatter = True,
-        self.edge_color = "red",
-        self.edge_line_width = 2.5,
+        self.fig_time_interval = 120
+        self.fig_style = "seaborn-deep"
+        self.line_width = 2.0
+        self.fig_size = (10, 8)
+        self.fig_scatter = True
+        self.edge_color = "red"
+        self.edge_line_width = 2.5
 
     def read_expr(self, file, col_names, skip_row, sep):
         lines = open(file, "r").readlines()

@@ -50,6 +50,7 @@ class MokeGrowthProcess(AbstractProcess):
         return df
 
     def preprocess(self, file_path):
+        self.set_column_names(self._multi_mode, self._iop)
         df = self.read_expr(file_path, self.col_names, self._skip_row, self._sep)
         df = self.adjust_time(df, self._multi_mode, self._iop, self.prepare_time)
 
