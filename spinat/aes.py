@@ -17,7 +17,7 @@ class AesProcess(AbstractProcess):
         self.based_tol = 5
         self.element_energy = 717
         self.element_tol = 5
-        self.fig_size = (20, 7)
+        self.fig_size = (15, 7)
         self.fig_scatter = False
 
     def read_expr(self, file, col_names, skip_row, sep):
