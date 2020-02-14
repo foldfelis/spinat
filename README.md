@@ -2,11 +2,11 @@
 
 Spintronics Analysis Toolbox for Low Dimensional Physics and Nano-Magnetism Lab, NCUE
 
-# Examples
+## Examples
 
-## MOKE Growth Data analysis
+### MOKE Growth Data analysis
 
-### For 1 measure mode (either in-plane or out-of-plane)
+#### For 1 measure mode (either in-plane or out-of-plane)
 
 1. Set parameters:
 
@@ -40,7 +40,7 @@ final_p.show()
 
 ![](./example/results/moke_growth_1mode_file.png)
 
-### For 2 measure mode (both in-plane and out-of-plane)
+#### For 2 measure mode (both in-plane and out-of-plane)
 
 1. Set parameters:
 
@@ -75,7 +75,7 @@ final_p.show()
 
 ![](./example/results/moke_growth_2mode_file.png)
 
-## MOKE Data analysis
+### MOKE Data analysis
 
 1. Import necessary packages:
 
@@ -116,7 +116,7 @@ p.show()
 ![](./example/results/moke.png)
 
 
-## AES Data analysis
+### AES Data analysis
 
 **The following example is based on the experiment of Deposit Cu on 14 ML Ni/Cu(001)**
 
